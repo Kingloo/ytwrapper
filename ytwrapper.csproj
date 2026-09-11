@@ -9,6 +9,8 @@
 	<RepositoryUrl>https://github.com/Kingloo/ytwrapper</RepositoryUrl>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PublishSingleFile>true</PublishSingleFile>
+	<SelfContained>false</SelfContained>
   </PropertyGroup>
 
 </Project>
