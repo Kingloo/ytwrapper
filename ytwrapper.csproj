@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+	<AssemblyName>ytwrapper</AssemblyName>
+	<EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+	<StartupObject>ytwrapper.Program</StartupObject>
+	<RepositoryUrl>https://github.com/Kingloo/ytwrapper</RepositoryUrl>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
