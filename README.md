@@ -3,7 +3,7 @@ Download and remux videos
 
 ## Requirements
 
-ytdlp and ffmpeg on PATH
+both `yt-dlp.exe` and `ffmpeg.exe` on PATH
 
 e.g.
 
