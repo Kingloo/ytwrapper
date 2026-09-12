@@ -5,7 +5,7 @@ Download and remux videos
 
 both `yt-dlp.exe` and `ffmpeg.exe` on PATH
 
-e.g.
+## Usage
 
 `
 	ytwrapper.exe "https://youtube.com/watch?v={VIDEO_ID}"
