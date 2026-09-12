@@ -4,19 +4,19 @@ using System.Diagnostics;
 
 namespace ytwrapper
 {
-	public record EasyProcessResult(int ExitCode);
-	public record EasyProcessResult<T>(int ExitCode, T? Value);
-	
-	public class EasyProcess
+	internal sealed record EasyProcessResult(int ExitCode);
+	internal sealed record EasyProcessResult<T>(int ExitCode, T? Value);
+
+	internal sealed class EasyProcess
 	{
 		private readonly ProcessStartInfo _processStartInfo;
-		
+
 		private readonly List<string> _stdout = new List<string>(capacity: 50);
 		private readonly List<string> _stderr = new List<string>(capacity: 50);
 
 		private bool _alreadyRun = false;
 		private readonly bool _repeatOnConsole = false;
-		
+
 		public EasyProcess(ProcessStartInfo processStartInfo)
 			: this(processStartInfo, false)
 		{ }
@@ -31,7 +31,7 @@ namespace ytwrapper
 
 		public EasyProcessResult Run()
 			=> RunInternal(null);
-		
+
 		public EasyProcessResult Run(Action<List<string>, List<string>> action)
 			=> RunInternal(action);
 
@@ -39,11 +39,11 @@ namespace ytwrapper
 		{
 			if (_alreadyRun)
 			{
-				throw new Exception("already called run");
+				throw new InvalidOperationException("already called run");
 			}
 
 			_alreadyRun = true;
-			
+
 			int exitCode = RunProcess();
 
 			if (action is not null)
@@ -53,16 +53,16 @@ namespace ytwrapper
 
 			return new EasyProcessResult(exitCode);
 		}
-		
+
 		public EasyProcessResult<T> Run<T>(Func<List<string>, List<string>, T?> func)
 		{
 			if (_alreadyRun)
 			{
-				throw new Exception("already called run");
+				throw new InvalidOperationException("already called run");
 			}
 
 			_alreadyRun = true;
-			
+
 			int exitCode = RunProcess();
 
 			return new EasyProcessResult<T>(exitCode, func(_stdout, _stderr));
@@ -74,7 +74,7 @@ namespace ytwrapper
 			{
 				StartInfo = _processStartInfo
 			};
-			
+
 			process.ErrorDataReceived += OnErrorDataReceived;
 			process.OutputDataReceived += OnOutputDataReceived;
 

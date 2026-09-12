@@ -6,9 +6,15 @@
 	<AssemblyName>ytwrapper</AssemblyName>
 	<EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
 	<StartupObject>ytwrapper.Program</StartupObject>
+	<Copyright>© Kingloo 2026</Copyright>
 	<RepositoryUrl>https://github.com/Kingloo/ytwrapper</RepositoryUrl>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PlatformTarget>x64</PlatformTarget>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<AnalysisLevel>latest</AnalysisLevel>
+	<AnalysisMode>all</AnalysisMode>
+	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	<PublishSingleFile>true</PublishSingleFile>
 	<SelfContained>false</SelfContained>
   </PropertyGroup>

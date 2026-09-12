@@ -6,21 +6,21 @@ using System.Text;
 
 namespace ytwrapper
 {
-	public static class Program
+	internal static class Program
 	{
 		private static readonly Encoding _encoding = new UTF8Encoding(
 			encoderShouldEmitUTF8Identifier: false,
 			throwOnInvalidBytes: true
 		);
 
-		public static int Main(string[] args)
+		internal static int Main(string[] args)
 		{
 			Uri? uri = GetUri(args);
 
 			if (uri is null)
 			{
 				Console.Error.WriteLine($"not a URI");
-				
+
 				return -1;
 			}
 
@@ -62,7 +62,7 @@ namespace ytwrapper
 			{
 				return null;
 			}
-			
+
 			return Uri.TryCreate(args[0], UriKind.Absolute, out Uri? uri) ? uri : null;
 		}
 
@@ -105,7 +105,7 @@ namespace ytwrapper
 		{
 			string originalNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFile.FullName);
 			string extension = Path.GetExtension(originalFile.FullName);
-			
+
 			string convertedName = originalNameWithoutExtension + "--conved" + extension;
 			string convertedFullName = Path.Combine(originalFile.DirectoryName!, convertedName);
 
